@@ -6,13 +6,15 @@
 
 int main() {
   // Área para definição das variáveis para armazenar as propriedades das cidades
-  char   cEstado; 
-  char   sCodigo[4];
-  char   sCidade[30];
-  int    iPopulacao;
-  float  fArea;
-  float  fPIB; 
-  int    iPontosTurismo;
+  char   cEstado;                  // Sigla do Estado : valores de 'A' a 'H' 
+  char   sCodigo[4];               // Codigo da Cidade: Sigla do Estado seguida de um número de 01 a 04
+  char   sCidade[30];              // Nome da Cidade, com ate 30 caracteres
+  int    iPopulacao;               // Populacao da Cidade
+  int    iPontosTurismo;           // Numero de pontos turisticos da Cidade
+  float  fArea;                    // Area da Cidade em Quilometros quadrados 
+  float  fPIB;                     // Produto Interno Bruto da Cidade ( em Bilhoes de Reais )
+  float  fDensidade;               // Densidade populacional : Populacao da Cidade / Area da Cidade
+  float  fPIBperCapita;            // PIB per Capita : Produto Interno Bruto da Cidade / Populacao da Cidade
 
   // Obtendo os dados da primeira Carta
 
@@ -26,7 +28,7 @@ int main() {
   scanf("%s", sCodigo);
 
   printf("Informe a Cidade: ");
-  scanf("%s", sCidade);
+  scanf(" %30[^\n]", sCidade);
 
   printf("Informe a População: ");
   scanf("%i", &iPopulacao); 
@@ -39,6 +41,11 @@ int main() {
 
   printf("Informe o Nº de Pontos Turísticos: ");
   scanf("%i", &iPontosTurismo); 
+
+  // Processamento dos dados para geracao da Densindade populacional e do PIB per Capita
+
+  fDensidade    = iPopulacao / fArea;
+  fPIBperCapita = ( fPIB / iPopulacao ) * 1000000000;    // como a entrada do fPIB está em bilhoes é preciso multiplicar por 1 bilhao
 
   // Exibindo os dados da primeira Carta
 
@@ -50,6 +57,8 @@ int main() {
   printf("Área: %.2f km²\n", fArea); 
   printf("PIB: %.2f bilhões de reais.\n", fPIB); 
   printf("Nº de Pontos Turísticos: %i\n", iPontosTurismo); 
+  printf("Densidade Populacional: %.2f hab/km²\n", fDensidade); 
+  printf("PIB per Capita: R$ %.2f\n", fPIBperCapita); 
 
 
   // Obtendo os dados da segunda Carta
@@ -58,13 +67,13 @@ int main() {
   printf("----------------------------\n");
 
   printf("Informe o Estado: ");
-  scanf("%c", &cEstado); 
+  scanf(" %c", &cEstado); 
 
   printf("Informe o Código da Carta: ");
   scanf("%s", sCodigo);
 
   printf("Informe a Cidade: ");
-  scanf("%s", sCidade);
+  scanf(" %30[^\n]", sCidade);
 
   printf("Informe a População: ");
   scanf("%i", &iPopulacao); 
@@ -78,6 +87,11 @@ int main() {
   printf("Informe o Nº de Pontos Turísticos: ");
   scanf("%i", &iPontosTurismo); 
 
+  // Processamento dos dados para geracao da Densindade populacional e do PIB per Capita
+
+  fDensidade    = iPopulacao / fArea;
+  fPIBperCapita = ( fPIB / iPopulacao ) * 1000000000;    // como a entrada do fPIB está em bilhoes é preciso multiplicar por 1 bilhao
+
   // Exibindo os dados da Segunda Carta
 
   printf("\n\nCarta 2:\n");
@@ -87,7 +101,9 @@ int main() {
   printf("População: %i habitantes\n", iPopulacao); 
   printf("Área: %.2f km²\n", fArea); 
   printf("PIB: %.2f bilhões de reais.\n", fPIB); 
-  printf("Nº de Pontos Turísticos: %i\n\n\n", iPontosTurismo); 
+  printf("Nº de Pontos Turísticos: %i\n", iPontosTurismo); 
+  printf("Densidade Populacional: %.2f hab/km²\n", fDensidade); 
+  printf("PIB per Capita: R$ %.2f\n\n\n", fPIBperCapita); 
 
   return 0;
 } 

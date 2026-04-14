@@ -14,7 +14,7 @@ int main() {
   float  fPIB; 
   int    iPontosTurismo;
 
-  
+
   // Área para entrada de dados
   printf("Dados para a Primeira Carta:\n");
   printf("----------------------------\n");
@@ -42,6 +42,15 @@ int main() {
 
 
   // Área para exibição dos dados da cidade
+
+  printf("\n\nCarta 1:\n");
+  printf("Estado: %c\n", cEstado); 
+  printf("Código da Carta: %s\n", sCodigo); 
+  printf("Nome da Cidade: %s\n", sCidade); 
+  printf("População: %i habitantes\n", iPopulacao); 
+  printf("Área: %.2f km²\n", fArea); 
+  printf("PIB: %.2f bilhões de reais.\n", fPIB); 
+  printf("Nº de Pontos Turísticos: %i\n", iPontosTurismo); 
 
 return 0;
 } 
